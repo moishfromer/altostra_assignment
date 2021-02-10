@@ -22,8 +22,9 @@ def get_page_count(response):
 
 @api_view(['GET'])
 def repos(request):
+    num_of_repos = 5
     response = get(f'{GITHUB_URL}/repositories')
-    data = response.json()[:2]
+    data = response.json()[:num_of_repos]
     response_data = []
     for x in data:
         repo_url = x['url']
